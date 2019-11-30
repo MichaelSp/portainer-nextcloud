@@ -20,7 +20,9 @@ services:
   app:
     image: nextcloud
     ports:
-      - 8080:8080
+      - 8080:80
+    links:
+      - db
     volumes:
       - nextcloud:/var/www/html
     restart: always
