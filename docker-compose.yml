@@ -15,7 +15,8 @@ services:
       - POSTGRES_DB=nextcloud
       - POSTGRES_USER=nextcloud
       - POSTGRES_INITDB_ARGS="--encoding=UTF8 --locale=en_US.UTF8"
-
+    mem_swappiness: -1 # temp workaround for synology
+    
   app:
     image: nextcloud
     ports:
@@ -23,3 +24,4 @@ services:
     volumes:
       - nextcloud:/var/www/html
     restart: always
+    mem_swappiness: -1 # temp workaround for synology
